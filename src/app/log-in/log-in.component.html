@@ -1,0 +1,27 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content style="display: flex;  flex-direction: column; align-items: center;">
+      <img mat-card-image src="../../assets/img/logo.png"
+        style=" align-items: center; max-width: 93px; max-height: 83px;" alt="logo">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter your email</mat-label>
+          <input matInput formControlName="email" type="email" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password">
+        </mat-form-field>
+        <div>
+          <button mat-raised-button type="submit" [disabled]="!loginForm.valid">
+            {{ isLoginMode ? 'Login' : 'Sign Up' }}
+          </button>
+          |
+          <button mat-raised-button (click)="onSwitchMode()" type="button">
+            Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

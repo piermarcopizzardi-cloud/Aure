@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SendService } from './log-in/send.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'appAure';
+constructor(private authService: SendService){
 
+}
+ngOnInit(){
+  // this.authService.autoLoginUser();
+}
 
 }

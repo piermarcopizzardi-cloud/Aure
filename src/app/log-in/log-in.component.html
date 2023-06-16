@@ -14,11 +14,14 @@
         </mat-form-field>
         <div>
           <button mat-raised-button type="submit" [disabled]="!loginForm.valid">
+            Login
+          </button>
+          <!-- <button mat-raised-button (click)="swichSing()" type="button">
             {{ isLoginMode ? 'Login' : 'Sign Up' }}
           </button>
-          |
-          <button mat-raised-button (click)="onSwitchMode()" type="button">
-            Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
+          | -->
+          <button mat-raised-button (click)="goRegistration()" type="button">
+            Go to register
           </button>
         </div>
       </form>

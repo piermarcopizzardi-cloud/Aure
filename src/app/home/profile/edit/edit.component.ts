@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-edit',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent {
+
 
 }

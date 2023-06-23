@@ -1,6 +1,6 @@
 <div class="container">
   <mat-card>
-    <mat-card-content style="display: flex;  flex-direction: column; align-items: center;">
+    <mat-card-content class= 'cardContent' >
       <img mat-card-image src="../../assets/img/logo.png"
         style=" align-items: center; max-width: 93px; max-height: 83px;" alt="logo">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
@@ -13,16 +13,15 @@
           <input matInput formControlName="password" type="password">
         </mat-form-field>
         <div>
-          <button mat-raised-button type="submit" [disabled]="!loginForm.valid">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">
             Login
           </button>
-          <!-- <button mat-raised-button (click)="swichSing()" type="button">
-            {{ isLoginMode ? 'Login' : 'Sign Up' }}
-          </button>
-          | -->
-          <button mat-raised-button (click)="goRegistration()" type="button">
+          |
+          <button  mat-raised-button (click)="goRegistration()" type="button">
             Go to register
           </button>
+
+
         </div>
       </form>
     </mat-card-content>

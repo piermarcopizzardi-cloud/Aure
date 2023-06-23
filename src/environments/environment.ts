@@ -1,4 +1,3 @@
 export const environment = {
-  api: 'http://198.18.192.223:4000/api/user',
-  apiProfile: 'http://198.18.192.223:4000/api/profile' // update Data
+  api: 'http://16.171.41.207:3000/api/user',
 }

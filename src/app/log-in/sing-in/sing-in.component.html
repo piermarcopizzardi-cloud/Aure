@@ -1,9 +1,15 @@
+
+<div *ngIf="registrationSuccess">
+  <p>Registrazione avvenuta con successo</p>
+  <button (click)="postData()">Verifica il tuo account</button>
+</div>
+
 <div class="container">
   <mat-card>
     <mat-card-content style="display: flex;  flex-direction: column; align-items: center;">
       <img mat-card-image src="../../assets/img/logo.png"
         style=" align-items: center; max-width: 93px; max-height: 83px;" alt="logo">
-      <form [formGroup]="singForm" (ngSubmit)="onSubmit()" class="example-form">
+      <form [formGroup]="singForm" (ngSubmit)="onSub()" class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Enter your email: </mat-label>
           <input matInput formControlName="email" type="email" />
@@ -12,22 +18,17 @@
           <mat-label>Password: </mat-label>
           <input matInput formControlName="password" type="password">
         </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Enter your name: </mat-label>
-          <input matInput formControlName="name" type="text" />
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Enter your surname:  </mat-label>
-          <input matInput formControlName="surname" type="text" />
-        </mat-form-field>
+
         <div>
-          <!-- <button mat-raised-button type="submit" onclick="switchSing()" [disabled]="!singForm.valid">
-            {{ isSinginMode ? 'Sign Up' : 'Login'}}
+          <!-- (click)="goLogin()"  serveirebbe sul button per reindirizzarlo -->
+          <button mat-raised-button color="primary" type="submit"  [disabled]="!singForm.valid">
+              Register
           </button>
-          | -->
-          <!-- <button mat-raised-button  type="button">
-            Switch to {{ isSinginMode ? 'Login' : 'Sign Up' }}
-          </button> -->
+          |
+          <button mat-raised-button (click)="goLogin()" type="button">
+            Go to Login
+          </button>
+
         </div>
       </form>
     </mat-card-content>

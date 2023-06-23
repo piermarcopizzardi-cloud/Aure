@@ -1,9 +1,9 @@
-import { Component, NgModule, inject } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { LogInComponent } from './log-in/log-in.component';
-import { HomeComponent } from './home/home.component';
-import { EditComponent } from './home/profile/edit/edit.component';
 import { SingInComponent } from './log-in/sing-in/sing-in.component';
+import { EditComponent } from './home/edit/edit.component';
+import { ProfileComponent } from './home/profile/profile.component';
 
 const authGuard = () => {
   const router = inject(Router);
@@ -36,14 +36,18 @@ const routes: Routes = [
     //lazy load modulo di home , tramite arrow.
     // altrimenti lazy load di componente standalone
     loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
-    canActivate: [authGuard],
-    children:[
-      {
-        path:'edit',
-        component: EditComponent
-      }
-    ]
+     canActivate: [authGuard],
   },
+  {
+    path:'profile',
+    component: ProfileComponent,
+    // loadComponent: () => import('./home/profile/profile.component').then(m => m.ProfileComponent),
+  },
+  {
+    path:'edit',
+    component: EditComponent,
+    // loadComponent: () => import('./home/edit/edit.component').then(m => m.EditComponent),
+  }
 ];
 
 

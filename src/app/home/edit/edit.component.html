@@ -1,0 +1,51 @@
+<ng-template #loading>
+ <mat-spinner></mat-spinner>
+</ng-template>
+
+    <mat-card-content class="profile">
+      <div class="container">
+        <mat-card >
+          <mat-card-content style="display: flex;  flex-direction: column; align-items: center;">
+            <p *ngIf="error">
+              {{error}}
+            </p>
+            <ng-container *ngIf="userData$ | async as user;">
+            <form  [formGroup]="editForm" (ngSubmit)="onSubmit()" class="example-form" >
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" type="text" [(ngModel)]="user.profile.name">
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>surname</mat-label>
+                <input matInput formControlName="surname" type="text" [(ngModel)]="user.profile.surname">
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>address</mat-label>
+                <input matInput formControlName="address" type="text" [(ngModel)]="user.profile.address">
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>phone</mat-label>
+                <input matInput formControlName="phoneNumber" type="text" [(ngModel)]="user.profile.phoneNumber">
+              </mat-form-field>
+              <div>
+                <button  mat-raised-button color="primary" type="submit" *ngIf="!isLoading else loading">
+                  Save
+                </button>
+
+                <button mat-raised-button color="warn" type="button" (click)="goHome()">
+                  Go Home
+                </button>
+
+              </div>
+            </form>
+          </ng-container>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+
+
+
+
+
+

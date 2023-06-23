@@ -12,3 +12,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.card-content{
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}

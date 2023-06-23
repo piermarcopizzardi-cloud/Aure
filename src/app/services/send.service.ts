@@ -52,20 +52,5 @@ export class SendService {
       scadenza: new Date(scadenza)
     }
   }
-
-  // // c'e da capire come implementarlo , non e richiesto da aure, se mai si elimina
-  // autoLoginUser() {
-  //   const authInformation = this.getLoginData();
-  //   const now = new Date();
-  //   const isInFuture = authInformation.scadenza > now;
-  //   if(isInFuture){
-  //     this.token = authInformation.token;
-  //     this.isAuthenticated = true;
-  //     this.authStatusListener.next(true);
-  //   }
-  // }
-  // ci sarebbe da creare un metodo per il timer di logout , ma non abbiamo il logout quindi non ci serve
-
-
 }
 

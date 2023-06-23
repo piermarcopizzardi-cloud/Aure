@@ -1,26 +1,24 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Component, Injectable } from '@angular/core';
-import { Router, Routes } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { ProfileComponent } from './profile/profile.component';
+import { MaterialModule } from '../Material.module';
+import { EditComponent } from './edit/edit.component';
+import { HeaderComponent } from "../header/header.component";
+
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  standalone : true,
-  imports : [
-    ProfileComponent,
-  ]
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
+    standalone: true,
+    imports: [
+
+        ProfileComponent,
+        EditComponent,
+        MaterialModule,
+        HeaderComponent
+    ]
 })
 export class HomeComponent {
-    constructor(private route: Router){}
-
-
-    logout(){
-      this.route.navigateByUrl("/login");
-      localStorage.removeItem("token");
-    }
 
 
 };

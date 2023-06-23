@@ -1,0 +1,6 @@
+.modal-container{
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 5%;
+  padding:10px;
+}

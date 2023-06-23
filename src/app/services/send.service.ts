@@ -18,11 +18,6 @@ export class SendService {
   success: boolean;
   token: string;
   url: string;
-  // logica http
-  // post al back con token
-  // controlli VERIFICA LOG-IN
-
-  // magari si puo usare il subscribe per attaccare alla post la home page
 
   login(email: string, password: string) {
     return this.http.post<authenticateRes>(

@@ -40,38 +40,32 @@ export class EditComponent {
   editForm: FormGroup;
   isLoading : boolean = false;
   error : string = "";
-  data!: Subject<ProfileResponse>;
-  constructor(public router: Router, public homeService: HomeService, public profileServ: ProfileService){}
-
-  // usare behaviour Subject (rxjs)
-
-  // event emitter e emit per il passaggio di dati da profile , ad edit
-  // magari usare ngif nel html per settare i dati al interno degli input
 
 
- userData$ = this.profileServ.getData()
- test: any
-  ngOnInit(): void {
-    this.data = this.profileServ.getValue()
-    console.log(this.data)
-
+  constructor(public router: Router, public homeService: HomeService, public profileServ: ProfileService){
     this.editForm = new FormGroup({
-      //this.data.subscribe( e => e.name) <- usato per arrivare ad avere Object object nel form
-      name: new FormControl(this.data.subscribe( e => this.test = e.name)),
-      surname: new FormControl(this.data.subscribe( e => e.surname)),
-      address: new FormControl(this.data.subscribe( e => e.address)),
-      phoneNumber: new FormControl(this.data.subscribe( e => e.phoneNumber))
+      name: new FormControl(""),
+      surname: new FormControl(""),
+      address: new FormControl(""),
+      phoneNumber: new FormControl("")
     })
+  }
 
-    // ci sono da inserire i valori della login
-    //this.data.next.name
-    // this.editForm.setValue({
-    //   name: [this.profileServ.getData(this.)],
-    //   surname: [],
-    //   adress: [],
-    //   phoneNumber: []
-    // });
+  ngOnInit(): void {
+    this.populateFormEdit();
+  }
 
+
+  async populateFormEdit(){
+    this.isLoading = true;
+    try{
+      const profileData = await lastValueFrom(this.profileServ.getEditData());
+      this.editForm.patchValue(profileData.profile);
+    }catch(err){
+      console.log(err)
+    }finally{
+      this.isLoading = false;
+    }
   }
 
   async onSubmit(){

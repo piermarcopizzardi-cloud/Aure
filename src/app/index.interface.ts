@@ -16,6 +16,12 @@ export interface ProfileResponse{
   phoneNumber: string
 }
 
+export interface EditProfileResponse{
+  email: string;
+  profile : ProfileResponse
+}
+
+
 export interface ProfileData {
   name: string,
   surname: string,

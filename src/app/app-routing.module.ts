@@ -36,12 +36,12 @@ const routes: Routes = [
     //lazy load modulo di home , tramite arrow.
     // altrimenti lazy load di componente standalone
     loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
-     canActivate: [authGuard],
+    //  canActivate: [authGuard],
   },
   {
     path:'profile',
-    component: ProfileComponent,
-    // loadComponent: () => import('./home/profile/profile.component').then(m => m.ProfileComponent),
+    // component: ProfileComponent,
+    loadComponent: () => import('./home/profile/profile.component').then(m => m.ProfileComponent),
   },
   {
     path:'edit',

@@ -1,8 +1,5 @@
 
-<div *ngIf="registrationSuccess">
-  <p>Registrazione avvenuta con successo</p>
-  <button (click)="postData()">Verifica il tuo account</button>
-</div>
+
 
 <div class="container">
   <mat-card>
@@ -31,6 +28,10 @@
 
         </div>
       </form>
+      <div *ngIf="registrationSuccess" >
+        <p>Registrazione avvenuta con successo</p>
+        <button mat-raised-button (click)="postData()">Verifica il tuo account</button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ProfileResponse} from 'src/app/index.interface';
+import { EditProfileResponse, ProfileResponse} from 'src/app/index.interface';
 import { Subject, delay } from 'rxjs';
 
 
@@ -20,6 +20,12 @@ export class ProfileService {
   getData(){
   const url = 'http://16.171.41.207:3000/api/profile';
   const userData = this.http.get<ProfileResponse>(url).pipe(delay(100));
+  return userData;
+}
+
+getEditData(){
+  const url = 'http://16.171.41.207:3000/api/profile';
+  const userData = this.http.get<EditProfileResponse>(url).pipe(delay(100));
   return userData;
 }
 
